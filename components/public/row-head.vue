@@ -40,6 +40,7 @@ export default {
         }
     }
 }
+
 </script>
 
 <style>
@@ -106,7 +107,7 @@ export default {
 }
 .row1-hd .in{
     flex:0.5;
-    background: url("/img/logo.png") no-repeat;
+    background: url("/img/logo-gucun.svg") no-repeat;
     background-size:160px 80px;
     background-position: 50px -10px;
     height:100%;

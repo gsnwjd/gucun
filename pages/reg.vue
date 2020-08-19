@@ -2,7 +2,7 @@
   <div id="load">
         <div class="load-con">
             <div class="logo">
-                <img src="img/logo.png" alt="" @click="location.href='/'">
+                <img src="img/logo-gucun.svg" alt="" @click="location.href='/'">
                 <button @click="tab_change(1)">登录</button>/
                 <button @click="tab_change(0)">注册</button>
             </div>
