@@ -127,6 +127,7 @@ export default {
       this.br_user = window.decodeURIComponent(user);
       this.br_auhead = auhead
     }
+    this.cube_dis_change(2);
   },
   methods:{
       cube_dis_change:function(i){

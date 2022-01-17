@@ -95,7 +95,7 @@ export default {
   mounted() {
     require("@/assets/js/gp-ani.js");
   },
-  layout: "usual",
+  // layout: "usual",
   data() {
     return {
       dest_val: false,
@@ -109,8 +109,14 @@ export default {
         "澳大利亚/新西兰",
         "中东/非洲"
       ],
-      group:{},
+      // group:{},
       board:'目前已经开通如下路线'
+    }
+  },
+  computed:{
+    group(){
+      console.log(this.$store.state.course.maplist)
+      return this.$store.state.course.maplist
     }
   },
   methods: {
@@ -123,15 +129,15 @@ export default {
       this.posi[id] = 0;
     }
   },
-    async asyncData(ctx){
-      let {status,data:{group}} = await ctx.$axios.get('http://localhost:3000/course/group')
+    // async asyncData(ctx){
+    //   let {status,data:{group}} = await ctx.$axios.get('http://localhost:3000/course/group')
 
-      if(status===200){
-      return{
-        group
-      }
-    }
-    }
+    //   if(status===200){
+    //   return{
+    //     group
+    //   }
+    // }
+    // }
 };
 </script>
 

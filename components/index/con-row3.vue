@@ -10,7 +10,7 @@
             <div class="row3-box">
                 
                 <div class="row3-cube-left" 
-                    :class="cls[idx]" v-for="(item,idx) in hotartis" 
+                    :class="cls[idx]" v-for="(item,idx) in hotartis" :key="idx"
                     @mouseover="tri_more(idx)" 
                     @mouseleave="tri_more_leave(idx)">
                             <div class="task_left">
@@ -58,15 +58,14 @@ export default {
 
       if(status===200){
       self.artis = artis
-      self.hotartis = artis.slice(2,6)
+      self.hotartis = artis.length >= 6 ?artis.slice(2,6):artis
     }
+    console.log(this.artis)
 
     },
     methods:{
         change_artis:function(){
             this.hotartis = []
-            
-            
             let artis = this.artis
             let le = artis.length
             let num = []
@@ -86,10 +85,10 @@ export default {
             
         },
         tri_more:function(x){
-            return this.dis[x].triangle_hover = true
+            // return this.dis[x].triangle_hover = true
         },
         tri_more_leave:function(x){
-            return this.dis[x].triangle_hover = false
+            // return this.dis[x].triangle_hover = false
         }
     },
    
@@ -143,14 +142,14 @@ export default {
 .tx3{
     width:380px;
     height:235px;
-    top:90px;
-    left:680px;
+    top:110px;
+    left:640px;
 }
 .tx4{
     width:350px;
     height:236px;
     top:460px;
-    left:80px;
+    left:40px;
 }
 .sp0{
     font-size: 22px;
@@ -199,7 +198,8 @@ export default {
     overflow: hidden;/*超出部分隐藏*/
 }
 .row3-cube-left .task_text img{
-    display: none;
+    height:100px;
+    width:auto;
 }
 .row3-cube-left .task_text .tt_head{
     color:gray;

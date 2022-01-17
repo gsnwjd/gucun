@@ -16,7 +16,8 @@ export default {
             return '1379598883@qq.com'
         },
         get pass(){
-            return 'zkruxvpsfsnrgedc'
+            //smtp码
+            return ''
         },
         get code(){
             return ()=>{

@@ -4,7 +4,7 @@
     <ul class="ptcard" v-for="(group,idx) in pts" :key="idx">
         <li v-for="(item,idx) in group.course">
             <div class="pt_img">
-                <img :src="item.img_src[0]" alt="">
+                <img :src="item.img_src" alt="">
             </div>
             
             <div class="pt_text">
