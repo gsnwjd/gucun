@@ -38,7 +38,7 @@
     "nuxt": "^2.0.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "tinymce": "^5.1.4",
+    "tinymce": "^5.10.0",
     "vueditor": "^0.3.1"
   },
   "devDependencies": {
