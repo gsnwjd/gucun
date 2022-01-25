@@ -94,6 +94,7 @@ export default {
     },
   mounted() {
     require("@/assets/js/gp-ani.js");
+    this.$axios.get('http://localhost:3000/course/dataInit')
   },
   // layout: "usual",
   data() {
@@ -115,7 +116,7 @@ export default {
   },
   computed:{
     group(){
-      console.log(this.$store.state.course.maplist)
+      // console.log(this.$store.state.course.maplist)
       return this.$store.state.course.maplist
     }
   },
@@ -146,7 +147,9 @@ export default {
   display: flex;
   justify-content: center; /*元素紧贴，排在中间*/
 }
-
+div[class^='posi']{
+  cursor: pointer;
+}
 #group {
   margin-top: 10px;
   flex: 0.85;
@@ -242,8 +245,8 @@ export default {
   background-image: url("/img/swiss7.jpeg");
 }
 .posi5 {
-  left: 950px;
-  top: 30px;
+  right:10px;
+  top:100px;
 }
 .ar6 {
   height: 200px;

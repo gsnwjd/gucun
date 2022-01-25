@@ -35,7 +35,6 @@ export default {
                 word:"关注",
                 depen:1
             },
-            isTrue:110000,
             username:""
         }
     },
@@ -58,7 +57,7 @@ export default {
             let au_name = self.au_name
             self.$axios.post('/foc/focs_push',{au_name}).then(({status,data})=>{
             if(status===200&&data.code===0){
-                self.isTrue = 120000
+                self.$message('关注成功!');
             }})
         },
         focs_del:function(){
@@ -66,7 +65,7 @@ export default {
             let au_name = self.au_name
             self.$axios.post('/foc/focs_del',{au_name}).then(({status,data})=>{
             if(status===200&&data.code===0){
-                self.isTrue = 130000
+                self.$message('已取消关注');
             }})
         }
     },

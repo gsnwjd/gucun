@@ -20,6 +20,9 @@ export default {
   components: {
     GChd,
     GCft
+  },
+  mounted(){
+    this.$store.dispatch('getUser')
   }
 }
 </script>

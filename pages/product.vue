@@ -195,8 +195,8 @@ export default {
   flex-direction: column;
 }
 .pro_title {
-  flex: 0.055;
-  overflow: hidden;
+  /* flex: 0.055; */
+  /* overflow: auto; */
 }
 .pro_title span:nth-child(1) {
   font-size: 25px;

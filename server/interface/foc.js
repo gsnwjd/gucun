@@ -41,7 +41,7 @@ router.post('/focs_push', async (ctx) => {
     }
 })
 /*取关*/
-router.post("/focus_del", async (ctx) => {
+router.post("/focs_del", async (ctx) => {
     const name = ctx.request.body.au_name
     let username = decodeURIComponent(ctx.session.passport.user.username)
     try {

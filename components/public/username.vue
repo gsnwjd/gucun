@@ -1,5 +1,5 @@
 <template lang="html">
-<div class="name">
+<div class="name" v-loading="loading">
         <template v-if="user">
             <a href="/pindex" class="person-index">
                 <auhead class="mgt" :auhead="auhead" :suit="suit"/>
@@ -7,7 +7,7 @@
             </a>   
         </template>
 
-        <template v-else>
+        <template v-if="!loading && !user">
             <a href="/reg" class="load">登录/注册</a>
         </template>
 </div>
@@ -21,7 +21,8 @@ export default {
     return {
       user: "",
       auhead:"",
-      suit:true
+      suit:true,
+      loading:true
     };
   },
   components:{
@@ -34,7 +35,8 @@ export default {
     } = await this.$axios.get("/users/getUser");
     if (status === 200) {
       this.user = window.decodeURIComponent(user);
-      this.auhead = auhead
+      this.auhead = auhead;
+      this.loading = false;
     }
   }
 };

@@ -4,8 +4,8 @@
             <a href="/" class="in"></a>
             <input type="text" name="find" id="find" v-model="search" @focus="search_icon" @blur="un_search">
             <ul class="find" v-if="search">
-                <li>搜索包含&nbsp;<span>{{search}}</span>&nbsp;的文章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a :href="`/article?key=${search}`">>></a></li>
-                <li>搜索包含&nbsp;<span>{{search}}</span>&nbsp;的拼团&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a :href="`/article?key=${search}`">>></a></li>
+                <li>搜索包含&nbsp;<span>{{search}}</span>&nbsp;的文章&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a :href="`/article?key=${search}`"><i class="el-icon-arrow-right"/></a></li>
+                <li>搜索包含&nbsp;<span>{{search}}</span>&nbsp;的拼团&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a :href="`/article?key=${search}`"><i class="el-icon-arrow-right"/></a></li>
             </ul>
             <img src="icon/search.png" alt="" class="srch_icon">
             <a href="/" class="li-hd">首页</a>
@@ -94,16 +94,17 @@ export default {
     overflow: hidden;
     color:#725848;
 }
-.row1-hd .find li a{
+.row1-hd .find li a {
     color:rgb(81, 113, 114);
     text-align: center;
     font-weight:bolder;
-    font-size: 13px;
-    height:15px;
-    width:15px;
+    font-size: 12px;
+    /*! height:15px; */
+    /*! width:15px; */
     background-color: rgb(243, 243, 243);
     box-shadow: 1px 1px 1px rgb(165, 165, 165);
     border-radius: 50%;
+    padding: 3px;
 }
 .row1-hd .in{
     flex:0.5;

@@ -5,7 +5,7 @@
             </div>
             <div class="row2-bd">
                 <ul class="row2-left">
-                    <li v-for="(item,idx) in $store.state.course.maplist" :key="idx" @mouseenter="change">
+                    <li v-for="(item,idx) in $store.state.course.maplist" :key="idx" @mouseenter="change" :class="{'choose':kind===item.addr}">
                         {{ item.name }}
                     <i :class="item.addr"/>
                     </li>
@@ -112,10 +112,12 @@ export default {
   border-radius: 16px;
   border: 1px dotted rgb(240, 231, 113);
   text-align: center;
+  cursor: pointer;
 }
 
-.row2-left li:hover {
+.row2-left li:hover,.row2-left li.choose{
   background-color: rgb(133, 170, 72);
+  border-style: solid;
   color: #fff;
 }
 

@@ -214,6 +214,7 @@ export default {
     flex:1;
     border-bottom:0.5px dashed #fff;
     padding-top:11%;
+    cursor: pointer;
 }
 .p_item ul li:hover{
     color:cornsilk;

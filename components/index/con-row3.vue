@@ -44,10 +44,11 @@
 export default {
     data(){
         return{
-            cls:["bg1 tx1","bg3 tx2","bg2 tx3","bg5 tx4"],
+            cls:["bg1 tx1","bg3 tx2","bg2 tx3","bg5 tx4","bg6 tx5"],
             imgs:["img/txt1.jpeg","img/txt2.jpeg","img/txt3.jpeg","img/txt5.jpeg"],
             artis:[],
-            dis:[{triangle_hover:false},{triangle_hover:false},{triangle_hover:false},{triangle_hover:false}],
+            checked:'yes',
+            dis:[{triangle_hover:false},{triangle_hover:false},{triangle_hover:false},{triangle_hover:false},{triangle_hover:false}],
             hotartis:[]
             
         }
@@ -58,9 +59,8 @@ export default {
 
       if(status===200){
       self.artis = artis
-      self.hotartis = artis.length >= 6 ?artis.slice(2,6):artis
+      self.hotartis = artis.length >= 6 ?artis.slice(1,6):artis
     }
-    console.log(this.artis)
 
     },
     methods:{
@@ -71,7 +71,7 @@ export default {
             let num = []
             let hot = []
 
-            for(let i=0;i<4;i++){
+            for(let i=0;i<5;i++){
                 let num_one = Math.floor(Math.random()*le)
                 if(num.indexOf(num_one) === -1){
                     num.push(num_one)
@@ -85,10 +85,10 @@ export default {
             
         },
         tri_more:function(x){
-            // return this.dis[x].triangle_hover = true
+            this.dis[x].triangle_hover = true
         },
         tri_more_leave:function(x){
-            // return this.dis[x].triangle_hover = false
+            this.dis[x].triangle_hover = false
         }
     },
    
@@ -151,6 +151,12 @@ export default {
     top:460px;
     left:40px;
 }
+.tx5 {
+    width:350px;
+    height:145px;
+    top:480px;
+    right:30px;
+}
 .sp0{
     font-size: 22px;
     font-display: 华文宋体;
@@ -184,6 +190,9 @@ export default {
 }
 .bg5{
     background-color: rgba(192, 211, 224, 0.158);
+}
+.bg6{
+    background-color: rgba(208, 192, 224, 0.158);
 }
 .row3-cube-left .task_left{
     width:80px;

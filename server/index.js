@@ -25,7 +25,6 @@ const app = new Koa()
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
 config.dev = app.env !== 'production'
-console.log('未启动')
 
 async function start () {
   // Instantiate nuxt.js
@@ -36,7 +35,6 @@ async function start () {
     useUnifiedTopology: true 
   })
   
-console.log('已经启动')
   
   const {
     host = process.env.HOST || 'localhost',

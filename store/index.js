@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
+
 import course from './modules/course'
 import arti from './modules/arti'
 import city from './modules/city'
@@ -9,11 +11,32 @@ Vue.use(Vuex)
 
 const store = () => new Vuex.Store({
     state: () => ({
-        counter: 0
-      }),
+        counter: 0,
+        userData:{
+          user:'测试',
+          auhead:'测试'
+        }
+    }),
+    getters:{
+	      getUser: state => state.userData
+    },
+    actions:{
+      async getUser({commit}){
+        const {
+          status,
+          data: { user,auhead}
+        } = await this.$axios.get("/users/getUser");
+        if (status === 200) {
+          commit('UpdateUser',{user,auhead})
+          // this.user = window.decodeURIComponent(user);
+          // this.auhead = auhead
+        }
+      }
+    },
     mutations: {
-        increment (state) {
-          state.counter++
+        UpdateUser(state,{user,auhead}) {
+          state.userData.user = window.decodeURIComponent(user);
+          state.userData.auhead = auhead
         }
       },
     modules: {
@@ -22,9 +45,6 @@ const store = () => new Vuex.Store({
         city,
         todos
     },
-    actions: {
-       
-    }
 })
 
 export default store

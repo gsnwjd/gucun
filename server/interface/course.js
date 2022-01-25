@@ -1,6 +1,6 @@
 
 import Router from 'koa-router'
-
+// import Course from '../dbs/models/course'
 import Product from '../dbs/models/product'
 import Arti from '../dbs/models/arti'
 import Redis from 'koa-redis'
@@ -11,31 +11,6 @@ let router = new Router({
   prefix: '/course'
 })
 
-router.get('/addr', async(ctx) => {
-    try {
-      let id = ctx.query.id
-      let areaid = ctx.query.addr
-      let course_s = await Product.findOne({
-        addr:areaid
-
-      // addr: ctx.query.addr,
-       //找到相应地点的course们
-     })
-     let course = course_s.course.filter((item) => item.id===id)[0]
-     ctx.body = {
-       code: 0,
-       course,
-       areaid
-
-     }
-   } 
-   catch (e) {
-     ctx.body = {
-       code: -1
-     }
-  }
-  
-})
 /*所有拼团数据*/
 router.get('/group',async(ctx)=>{
   try {
