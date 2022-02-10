@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     orderval: function() {
-      let val = this.order.split("-");
+      let val = this.order.split("###");
       return val;
     }
   },
@@ -79,15 +79,17 @@ export default {
   width: 100%;
 }
 #order .btn1 {
-  height: 30px;
-  width: 80px;
+  /*! height: ; */
+  width: 100px;
   text-align: center;
   font-size: 18px;
   color: cornsilk;
   background-color: rgb(167, 132, 162);
   float: right;
   margin: 20px 40px 0px 0px;
-  border-radius: 10px;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
 }
 .order {
   margin-top: 90px;

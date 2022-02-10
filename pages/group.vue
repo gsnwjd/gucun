@@ -94,7 +94,6 @@ export default {
     },
   mounted() {
     require("@/assets/js/gp-ani.js");
-    this.$axios.get('http://localhost:3000/course/dataInit')
   },
   // layout: "usual",
   data() {

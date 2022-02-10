@@ -28,7 +28,7 @@ export default {
   components:{
     Auhead
   },
-  async mounted() {
+  async mounted(){
     const {
       status,
       data: { user,auhead}

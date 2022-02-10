@@ -22,7 +22,7 @@ export default {
     GCft
   },
   mounted(){
-    this.$store.dispatch('getUser')
+    // this.$store.dispatch('getUser')
   }
 }
 </script>

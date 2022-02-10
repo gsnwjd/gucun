@@ -12,8 +12,8 @@
                 <ul class="arti-left">
                     <arti v-for="(arti,idx) in artisval.slice(0,ar_len)" :key="idx" :arti="arti" />
                 </ul>
-                <div class="load_div" @mouseenter="more">
-                    <span class="more_arti" v-if="!end_msg">More+</span>
+                <div class="load_div">
+                    <span @mouseenter="more" class="more_arti" v-if="!end_msg">More+</span>
                     <span v-if="end_msg" class="endmsg">{{ end_msg }}</span>
                 </div>
             </div>
@@ -52,6 +52,7 @@ export default {
       })
 
       if(status2===200 && status===200){
+      console.log('????');
       return{
         keyarti,
         artis,
@@ -115,6 +116,7 @@ export default {
     color:rgb(158, 130, 158);
     text-align: center;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .endmsg{

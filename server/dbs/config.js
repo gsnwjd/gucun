@@ -13,7 +13,7 @@ export default {
             return 'smtp.qq.com'
         },
         get user(){
-            return '1379598883@qq.com'
+            return ''
         },
         get pass(){
             //smtp码

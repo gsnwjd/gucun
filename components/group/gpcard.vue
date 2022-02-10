@@ -2,19 +2,13 @@
 <div class="pass">
 
 <div class="gpcard">
-    <div class="gp">
-        <img :src="gps[5]" alt="">
+    <div class="gp img" :style="{backgroundImage:'url('+gps[9]+')'}">
     </div>
 
     <div class="gp text">
-        <span class="title" v-if="gps[8]" :title="gps[8]">
-            {{gps[8].slice(0,22)}}......
-        </span>
-        
-        <br/>
-        {{gps[2].slice(0,15)}}
-        <br/>
-        {{gps[0]}},{{gps[1]}}
+        <div class="title" v-if="gps[8]" :title="gps[8]">{{gps[8]}}</div>
+        <div class="time">{{gps[2]}}</div>
+        <div class="pro">{{gps[0]}},{{gps[1]}}</div>
     </div>
 
     <div class="gp price">
@@ -90,21 +84,37 @@ export default {
     overflow: hidden;
     border-right:1px solid rgb(233, 233, 233);
 }
+.gp.img{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 .gpcard :nth-child(5){
     border-right:0px solid rgb(233, 233, 233);
 }
-.gp img{
 
-    height:200px;
-}
-.title{
-    color:#b5b5b5;
-}
 .gpcard .text{
-    line-height: 50px;
     flex:0.4;
     font-size: 15px;
 }
+.gpcard .text .title{
+    height: 60px;
+    line-height: 25px;
+    padding: 10px;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 15px;
+    box-sizing: border-box;
+    color:#222;
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp: 2;
+}
+.gpcard .text .time{
+    color: #999;
+    font-size: 13px;
+}
+
 .gpcard .price{
     font-size: 22px;
     font-weight: bolder;

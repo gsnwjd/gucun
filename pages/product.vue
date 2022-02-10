@@ -8,18 +8,16 @@
         </ul>
         </div>
         <div class="pro_body1">
-                <div class="pro_display">
-                    <div class="disbody">
-                        <img v-for="(item,idx) in course.img_src" :src="item" alt="">
-                    </div>
-                  
+                <div class="pro_display" :style="{backgroundImage:'url('+course.img_src+')'}">
+                        
                 </div>
+<!--                 
                 <a href="#" class="pro_last">
                     <
                 </a>
                 <a href="#" class="pro_next" @click="next">
                     >
-                </a>
+                </a> -->
                 <div class="pro_text mgl_30">
                     <p>
                         独立成团 · 透明行程 · 食宿无忧 · 严选导游
@@ -73,9 +71,7 @@
                         
                     </p>
                     <p>
-                        <span class="sp8"><a href="" @click="orderin">立即预定</a></span>
-                        
-                        <!--<span class="sp8"><a :href="`/order?id=${orderid}`">立即预定</a></span>-->
+                        <span class="sp8"  @click="orderin">立即预定</span>
                     </p>
                 </div>
         </div>
@@ -125,18 +121,21 @@ export default {
           let pro = this.$store.state.city.city[self.idx].province
           
           self.$axios.post('/order/in',{
-            orderval:`${pro}-${self.city}-${self.list_date}-${self.list_num}-${self.course.price}-${self.course.img_src[1]}-${self.course.id}-${self.areaid}-${self.course.title}`,
+            orderval:`${pro}###${self.city}###${self.list_date}###${self.list_num}###${self.course.price}###${self.course.img_src[1]}###${self.course.id}###${self.areaid}###${self.course.title}###${self.course.img_src}`,
             id:id
       }).then(({status,data})=>{
         if(status===200){
           if(data.code===1){
             location.href=`/order?id=${id}`
           }else{
-            self.error=`出错`
+            this.$message(`订单出错`)
           }
         }else{
-          self.error=`服务器出错`
-        }})
+          this.$message(`服务器出错`)
+        }
+        }).catch(e=>{
+          this.$message(e)
+        })
       }
   },
   computed: {
@@ -194,9 +193,8 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.pro_title {
-  /* flex: 0.055; */
-  /* overflow: auto; */
+.pro_title{
+  margin-bottom: 15px;
 }
 .pro_title span:nth-child(1) {
   font-size: 25px;
@@ -229,10 +227,14 @@ export default {
   position: relative;
 }
 .pro_display {
-  flex: 0.4;
+  -webkit-box-flex: 0.4;
+          flex: 0.4;
   height: 60%;
   overflow: hidden;
   padding-bottom: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .pro_display .disbody{
     overflow: hidden;
@@ -342,9 +344,9 @@ export default {
   border-radius: 20px;
   color: rgb(97, 70, 87);
   border: 1px dashed rgb(167, 115, 147);
-}
-p .sp8 a {
   color: rgb(97, 70, 87);
+  cursor: pointer;
+  box-shadow:0px 0px 3px #bebebe;
 }
 
 .pro_body2 {

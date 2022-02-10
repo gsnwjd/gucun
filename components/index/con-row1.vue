@@ -1,5 +1,7 @@
 <template lang="html">
         <div class="con-row" id="row1">
+            <a href="" @click.prevent="test()">测试</a>
+            <span href="" @click.stop="test()">测试</span>
             <div class="row1-bd">
                 <div class="row1-left">
                     <div>
@@ -54,7 +56,15 @@ export default {
         }
     },
     mounted(){
+        document.getElementById('row1').addEventListener('click',function(){
+            console.log('fufufufuf')
+        })
         require('@/assets/js/con1-ani.js')
+    },
+    methods:{
+        test(){
+            alert('before');
+        }
     }
 }
 </script>
